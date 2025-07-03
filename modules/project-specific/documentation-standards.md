@@ -181,11 +181,11 @@ We will use PostgreSQL as our primary database.
 
 ## Knowledge Management
 
-### Team Knowledge
-- **Onboarding documentation**: Guide for new team members
-- **Team processes**: How the team works together
-- **Meeting notes**: Important decisions and discussions
-- **Learning resources**: Training materials and references
+### Technical Knowledge Documentation
+- **Setup documentation**: Automated generation of environment setup guides
+- **Development processes**: Document development workflows and tooling
+- **Technical decisions**: Record architectural and implementation decisions
+- **Reference materials**: Maintain technical references and code examples
 
 ### Historical Context
 - **Change logs**: Record of significant changes and their rationale

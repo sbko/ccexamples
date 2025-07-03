@@ -298,8 +298,8 @@ Before making changes, Claude Code should:
 2. **Automation**: Automate quality checks wherever possible
 3. **Early detection**: Catch issues as early in the development cycle as possible
 4. **Continuous improvement**: Regularly review and update quality standards
-5. **Documentation**: Document quality decisions and exceptions
-6. **Education**: Ensure team understands the reasoning behind quality rules
+5. **Documentation**: Document quality decisions, exceptions, and reasoning in code comments and standards
+6. **Automated enforcement**: Use automated tools to enforce quality rules consistently
 
 ### DO
 - Run quality checks before every commit

@@ -40,25 +40,25 @@ Standardizes team communication, code review processes, and collaboration workfl
 - **Runbooks**: Operational procedures for common tasks and incident response
 - **Onboarding docs**: Maintain current new developer onboarding materials
 
-### Meeting Standards
-- **Daily standups**: Brief status updates and blocker identification
-- **Sprint planning**: Detailed planning and estimation for upcoming work
-- **Retrospectives**: Regular process improvement and team health discussions
-- **Tech talks**: Monthly knowledge sharing and learning sessions
+### Code Communication Standards
+- **Commit messages**: Generate clear, descriptive commit messages that explain changes
+- **Pull request descriptions**: Create comprehensive PR descriptions with context and impact
+- **Code comments**: Document complex logic and architectural decisions in code
+- **Change summaries**: Provide clear summaries of modifications and their rationale
 
 ## Knowledge Sharing
 
-### Information Distribution
-- **Decision documentation**: Record and communicate architectural decisions
-- **Best practice sharing**: Regular sharing of learnings and discoveries
-- **Cross-training**: Ensure knowledge is distributed across team members
-- **External learning**: Share insights from conferences, articles, and training
+### Code Documentation and Knowledge Preservation
+- **Decision documentation**: Record architectural decisions in ADR (Architecture Decision Record) files
+- **Best practice documentation**: Maintain coding standards and patterns in codebase documentation
+- **Knowledge extraction**: Extract and document insights from code analysis and refactoring
+- **Implementation examples**: Create and maintain example code demonstrating best practices
 
-### Mentorship Programs
-- **Formal mentoring**: Structured mentorship for junior developers
-- **Code pairing**: Regular pair programming sessions
-- **Review mentoring**: Use code reviews as teaching opportunities
-- **Skill development**: Support team members' professional growth
+### Code Review Enhancement
+- **Educational comments**: Provide clear explanations in code review comments
+- **Pattern identification**: Identify and document recurring patterns for future reference
+- **Quality improvement suggestions**: Suggest specific improvements with explanations
+- **Knowledge sharing through code**: Use code examples to demonstrate better approaches
 
 ## Incident Response
 
@@ -119,16 +119,16 @@ Standardizes team communication, code review processes, and collaboration workfl
 ## Continuous Improvement
 
 ### Process Optimization
-- **Regular retrospectives**: Identify and address process inefficiencies
-- **Metrics tracking**: Monitor team performance and satisfaction
-- **Tool evaluation**: Regularly assess and improve development tools
-- **Industry best practices**: Stay current with evolving industry standards
+- **Code analysis**: Identify and address code quality inefficiencies through automated analysis
+- **Metrics tracking**: Monitor code quality, test coverage, and technical debt trends
+- **Tool evaluation**: Assess and recommend development tools based on codebase analysis
+- **Best practice implementation**: Apply current industry standards through code improvements
 
-### Team Development
-- **Skill assessment**: Regular evaluation of team skills and gaps
-- **Training opportunities**: Provide learning and development opportunities
-- **Career growth**: Support individual career development goals
-- **Team building**: Activities to strengthen team relationships and trust
+### Codebase Enhancement
+- **Technical assessment**: Analyze codebase for areas needing improvement
+- **Refactoring opportunities**: Identify code that would benefit from refactoring
+- **Pattern documentation**: Document and implement consistent coding patterns
+- **Knowledge consolidation**: Centralize technical knowledge in code documentation
 
 ## Integration with Other Modules
 
