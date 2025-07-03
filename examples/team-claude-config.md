@@ -11,23 +11,10 @@ This example shows how a development team might configure `~/.claude/CLAUDE.md` 
 
 ## Team-Specific Overrides
 
-### Code Review Standards
-- **Required reviewers**: Minimum 2 approvals for production code
-- **Review response time**: Reviews completed within 24 hours
-- **Review scope**: Security, performance, maintainability, and tests
-- **Knowledge sharing**: Use reviews for mentoring and learning
+## Team Standards
 
-### Branch Protection Rules
-- **Main branch**: Protected, requires PR and passing CI
-- **Feature branches**: Prefix with `feature/`, `bugfix/`, or `hotfix/`
-- **Release branches**: Prefix with `release/` followed by version
-- **Commit signing**: All commits must be signed
-
-### Quality Gates
-- **Pre-commit**: Linting, formatting, and basic tests
-- **Pre-push**: Full test suite and security scans
-- **CI pipeline**: Comprehensive quality checks and integration tests
-- **Deployment**: Additional smoke tests and health checks
+@modules/global/team-collaboration.md
+@modules/global/universal-commands.md
 
 ## Security Requirements
 
@@ -43,25 +30,6 @@ This example shows how a development team might configure `~/.claude/CLAUDE.md` 
 - **Secret scanning**: Automated detection of committed secrets
 - **Security training**: Annual security training for all developers
 
-## Communication Standards
-
-### Issue Management
-- **Issue templates**: Use standardized templates for bugs and features
-- **Severity levels**: Critical, High, Medium, Low with defined SLAs
-- **Assignment**: Issues assigned to specific team members
-- **Progress tracking**: Regular updates on issue status
-
-### Documentation Requirements
-- **API documentation**: Keep OpenAPI/Swagger docs current
-- **Architecture decisions**: Document significant architectural choices
-- **Runbooks**: Operational procedures for common tasks
-- **Onboarding docs**: Keep new developer onboarding materials current
-
-### Meeting Standards
-- **Daily standups**: Brief status updates and blocker identification
-- **Sprint planning**: Detailed planning for upcoming work
-- **Retrospectives**: Regular process improvement discussions
-- **Tech talks**: Monthly knowledge sharing sessions
 
 ## Development Environment
 
@@ -85,11 +53,7 @@ This example shows how a development team might configure `~/.claude/CLAUDE.md` 
 - **Business metrics**: User actions and feature usage
 - **Alert routing**: Team-specific alert routing and escalation
 
-### Incident Response
-- **On-call rotation**: Fair distribution of on-call responsibilities
-- **Incident runbooks**: Documented procedures for common incidents
-- **Post-mortem process**: Blameless post-mortems for all incidents
-- **Communication plan**: Clear escalation and notification procedures
+@modules/global/incident-response.md
 
 ## Continuous Improvement
 

@@ -12,35 +12,8 @@ This is an example of a comprehensive `~/.claude/CLAUDE.md` file that imports mu
 
 ## Development Workflow Integration
 
-### Command Execution Protocol
-
-Before executing any development commands, Claude Code should:
-
-1. **Environment Check**: Verify development environment is properly set up
-2. **Quality Gates**: Run appropriate linting, formatting, and type checking
-3. **Security Scan**: Check for hardcoded secrets and vulnerabilities
-4. **Test Execution**: Run relevant tests before making changes
-5. **Performance Validation**: Consider performance implications
-
-### Project Detection and Adaptation
-
-Automatically detect and adapt to project types:
-
-- **Go projects**: Use go fmt, golangci-lint, go vet, go test
-- **Python projects**: Use black, ruff, mypy, pytest
-- **JavaScript/TypeScript**: Use prettier, eslint, tsc, jest
-- **Rust projects**: Use rustfmt, clippy, cargo test
-- **Java projects**: Use spotless, spotbugs, maven/gradle test
-- **C# projects**: Use dotnet format, dotnet test
-
-### Universal Command Standards
-
-Establish consistent commands across all projects:
-- `quality`: Run all quality checks (lint + format + typecheck)
-- `test`: Run test suite with appropriate coverage
-- `security`: Run security scans and vulnerability checks
-- `clean`: Clean build artifacts and temporary files
-- `setup`: Initialize development environment
+@modules/global/project-detection.md
+@modules/global/universal-commands.md
 
 ## Global Overrides and Customizations
 
@@ -64,17 +37,7 @@ Establish consistent commands across all projects:
 
 ## Team Collaboration
 
-### Code Review Guidelines
-- **Review checklist**: Security, performance, maintainability, tests
-- **Response time**: Reviews completed within 24 hours
-- **Knowledge sharing**: Use reviews for learning and mentoring
-- **Documentation updates**: Ensure docs stay current with changes
-
-### Communication Standards
-- **Issue tracking**: Use clear, descriptive issue titles and descriptions
-- **Progress updates**: Regular status updates on long-running work
-- **Knowledge documentation**: Document decisions and architectural choices
-- **Incident response**: Clear escalation paths for production issues
+@modules/global/team-collaboration.md
 
 ## Monitoring and Continuous Improvement
 
@@ -92,17 +55,7 @@ Establish consistent commands across all projects:
 
 ## Emergency Procedures
 
-### Incident Response
-- **Immediate actions**: Stop, assess, communicate, fix, verify, document
-- **Rollback procedures**: Quick rollback capabilities for production issues
-- **Communication plan**: Clear escalation and notification procedures
-- **Post-incident review**: Blameless post-mortems to improve processes
-
-### Security Incidents
-- **Immediate containment**: Isolate affected systems
-- **Assessment**: Determine scope and impact of security incidents
-- **Remediation**: Apply fixes and verify security posture
-- **Documentation**: Maintain incident logs for compliance and learning
+@modules/global/incident-response.md
 
 ---
 

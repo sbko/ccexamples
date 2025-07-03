@@ -20,6 +20,10 @@ Modules suitable for global installation in `~/.claude/CLAUDE.md`:
 - **code-quality.md**: Linting, formatting, and type checking standards
 - **security-practices.md**: Secure coding guidelines
 - **performance-optimization.md**: Performance best practices
+- **project-detection.md**: Automatic project type detection and tool adaptation
+- **universal-commands.md**: Consistent command interface across all projects
+- **team-collaboration.md**: Code review, communication, and collaboration standards
+- **incident-response.md**: Emergency procedures and incident management
 
 ### Project-Specific Modules (`modules/project-specific/`)
 Modules for specific project types or workflows:
@@ -48,6 +52,14 @@ Use the native Claude Code import syntax in your `~/.claude/CLAUDE.md` file:
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 @modules/global/security-practices.md
+
+## Workflow Integration
+@modules/global/project-detection.md
+@modules/global/universal-commands.md
+
+## Team Collaboration
+@modules/global/team-collaboration.md
+@modules/global/incident-response.md
 
 ## Additional customizations...
 ```

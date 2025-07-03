@@ -26,15 +26,9 @@ Check for language-specific quality tools in your project:
 - **Type checkers**: Tools that verify type correctness
 - **Static analyzers**: Tools that find security and performance issues
 
-### Common Tool Categories by Language
-- **JavaScript/TypeScript**: ESLint, Prettier, TSC
-- **Python**: Ruff/Flake8, Black, MyPy
-- **Go**: golangci-lint, gofmt, go vet
-- **Rust**: Clippy, rustfmt, cargo check
-- **Java**: SpotBugs, Checkstyle, Google Java Format
-- **C#**: Roslyn analyzers, dotnet format
-- **Ruby**: RuboCop, Sorbet
-- **PHP**: PHP_CodeSniffer, PHP-CS-Fixer, PHPStan
+### Tool Selection by Language
+
+For specific tool recommendations and command examples, see @modules/global/universal-commands.md which provides comprehensive coverage of quality tools for all major languages.
 
 ## Code Formatting Standards
 

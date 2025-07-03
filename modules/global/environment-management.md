@@ -184,4 +184,13 @@ When Claude Code encounters build/test failures:
 - **Version mismatches**: Recommend specific versions in `flox.toml`
 - **Environment conflicts**: Guide resolution with `flox list` and `flox activate`
 
+## Integration with Other Modules
+
+This module provides the foundation for all development workflows and integrates with:
+- **@modules/global/code-quality.md**: Defines what quality checks to execute in the environment
+- **@modules/global/security-practices.md**: Provides security scanning requirements  
+- **@modules/global/git-workflow.md**: Ensures quality gates are met before commits
+- **@modules/global/universal-commands.md**: Defines the standard commands executed in the environment
+- **@modules/global/project-detection.md**: Determines which tools to install based on project type
+
 This configuration ensures consistent, reproducible development environments while maintaining flexibility for different project types and team workflows.
