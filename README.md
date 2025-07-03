@@ -15,7 +15,8 @@ This repository contains reusable CLAUDE.md modules that can be imported into yo
 
 ### Global Modules (`modules/global/`)
 Modules suitable for global installation in `~/.claude/CLAUDE.md`:
-- **environment-management.md**: Standardized dependency management with Flox
+
+#### Core Development Standards
 - **git-workflow.md**: Git best practices and commit standards
 - **code-quality.md**: Linting, formatting, and type checking standards
 - **security-practices.md**: Secure coding guidelines
@@ -24,6 +25,13 @@ Modules suitable for global installation in `~/.claude/CLAUDE.md`:
 - **universal-commands.md**: Consistent command interface across all projects
 - **team-collaboration.md**: Code review, communication, and collaboration standards
 - **incident-response.md**: Emergency procedures and incident management
+
+#### Environment Management Options
+- **environment-management.md**: Flox.dev-based environment management (recommended)
+- **docker-environment.md**: Docker and Docker Compose development environments
+- **nix-environment.md**: Nix flakes and direnv-based environments
+- **devcontainer-environment.md**: VS Code development containers
+- **asdf-environment.md**: ASDF version manager for multi-language projects
 
 ### Project-Specific Modules (`modules/project-specific/`)
 Modules for specific project types or workflows:
@@ -48,10 +56,16 @@ Use the native Claude Code import syntax in your `~/.claude/CLAUDE.md` file:
 # Global Claude Code Configuration
 
 ## Core Development Standards
-@modules/global/environment-management.md
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 @modules/global/security-practices.md
+
+## Environment Management (choose one)
+@modules/global/environment-management.md
+# OR @modules/global/docker-environment.md
+# OR @modules/global/nix-environment.md
+# OR @modules/global/devcontainer-environment.md
+# OR @modules/global/asdf-environment.md
 
 ## Workflow Integration
 @modules/global/project-detection.md
