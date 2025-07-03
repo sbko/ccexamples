@@ -47,59 +47,68 @@ Pre-configured templates for common project types:
 - **go-project.md**: Go development patterns
 - **full-stack-project.md**: Full-stack application guidelines
 
-## Usage
+## 🚀 Quick Start
 
-### Global Configuration
-Use the native Claude Code import syntax in your `~/.claude/CLAUDE.md` file:
+### Installation
 
-```markdown
+```bash
+# 1. Clone modules globally
+git clone https://github.com/sbko/ccexamples.git ~/.claude/ccexamples
+
+# 2. Create global configuration
+cat > ~/.claude/CLAUDE.md << 'EOF'
 # Global Claude Code Configuration
 
 ## Core Development Standards
-@modules/global/git-workflow.md
-@modules/global/code-quality.md
-@modules/global/security-practices.md
+@~/.claude/ccexamples/modules/global/git-workflow.md
+@~/.claude/ccexamples/modules/global/code-quality.md
+@~/.claude/ccexamples/modules/global/security-practices.md
 
-## Environment Management (choose one)
-@modules/global/flox-environment.md
-# OR @modules/global/docker-environment.md
-# OR @modules/global/nix-environment.md
-# OR @modules/global/devcontainer-environment.md
-# OR @modules/global/asdf-environment.md
+## Environment Management
+@~/.claude/ccexamples/modules/global/flox-environment.md
 
 ## Workflow Integration
-@modules/global/project-detection.md
-@modules/global/universal-commands.md
+@~/.claude/ccexamples/modules/global/project-detection.md
+@~/.claude/ccexamples/modules/global/universal-commands.md
+EOF
 
-## Team Collaboration
-@modules/global/team-collaboration.md
-@modules/global/incident-response.md
-
-## Additional customizations...
+# 3. Test it works
+claude "What environment management approach should I use?"
 ```
 
-### Project-Specific Configuration
-Add modules to your project's `./CLAUDE.md`:
-
+### Use in Your Projects
+Create a simple `./CLAUDE.md` in any project:
 ```markdown
-# Project Configuration
+# My Project Configuration
 
-## Import Global Standards
-@~/.claude/CLAUDE.md
+## Project-Specific Modules
+@~/.claude/ccexamples/modules/templates/go-project.md
 
-## Project-Specific Standards
-@modules/project-specific/testing-strategies.md
-@modules/project-specific/debugging-protocols.md
-@modules/templates/react-project.md
+## Project Instructions
+- This is a Go REST API project
+- Use PostgreSQL for persistence
+- Follow microservice patterns
+- Include comprehensive logging
 
-## Project overrides...
+Note: Global standards from ~/.claude/CLAUDE.md are loaded automatically
 ```
 
-### Example Configurations
-See the `examples/` directory for complete configuration examples:
-- `examples/simple-claude-config.md` - Minimal essential configuration
-- `examples/global-claude-config.md` - Comprehensive global configuration
-- `examples/project-claude-config.md` - Go API project with PostgreSQL
+## 📖 Detailed Usage Guide
+
+**For complete setup instructions and alternative installation methods, see [USAGE.md](USAGE.md)**
+
+### Installation Options:
+- **🎯 Global Installation** - One setup, use everywhere (recommended)
+- **🔧 Project-Local** - Copy modules into each project
+- **🏗️ Git Submodule** - Version-controlled module updates
+- **🎨 Team Setup** - Shared team configurations
+
+### Example Configurations:
+- `examples/global-installation-example.md` - Global setup (recommended)
+- `examples/project-local-example.md` - Project-local setup
+- `examples/environment-choice-example.md` - Environment management options
+- `examples/simple-claude-config.md` - Minimal configuration
+- `examples/global-claude-config.md` - Comprehensive configuration
 - `examples/team-claude-config.md` - Team collaboration standards
 
 ## Module Structure
