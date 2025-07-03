@@ -1,4 +1,4 @@
-# Claude Code Environment Management Configuration
+# Flox Environment Management
 
 ## Environment Management Strategy
 

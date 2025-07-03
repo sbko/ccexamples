@@ -4,7 +4,7 @@ This example shows how a development team might configure `~/.claude/CLAUDE.md` 
 
 ## Team Development Standards
 
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 @modules/global/security-practices.md

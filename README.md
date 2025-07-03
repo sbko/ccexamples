@@ -27,7 +27,7 @@ Modules suitable for global installation in `~/.claude/CLAUDE.md`:
 - **incident-response.md**: Emergency procedures and incident management
 
 #### Environment Management Options
-- **environment-management.md**: Flox.dev-based environment management (recommended)
+- **flox-environment.md**: Flox.dev-based environment management (recommended)
 - **docker-environment.md**: Docker and Docker Compose development environments
 - **nix-environment.md**: Nix flakes and direnv-based environments
 - **devcontainer-environment.md**: VS Code development containers
@@ -61,7 +61,7 @@ Use the native Claude Code import syntax in your `~/.claude/CLAUDE.md` file:
 @modules/global/security-practices.md
 
 ## Environment Management (choose one)
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 # OR @modules/global/docker-environment.md
 # OR @modules/global/nix-environment.md
 # OR @modules/global/devcontainer-environment.md

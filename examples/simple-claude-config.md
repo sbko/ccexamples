@@ -4,7 +4,7 @@ This is a minimal example of a `~/.claude/CLAUDE.md` file that imports just the 
 
 ## Essential Development Standards
 
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 

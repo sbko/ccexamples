@@ -4,7 +4,7 @@ This is an example of a comprehensive `~/.claude/CLAUDE.md` file that imports mu
 
 ## Core Development Standards
 
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 @modules/global/security-practices.md

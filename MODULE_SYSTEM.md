@@ -15,7 +15,7 @@ Claude Code uses the `@path/to/file` syntax for imports, as documented in the [o
 
 ### Multiple Imports
 ```markdown
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/security-practices.md
 @modules/project-specific/testing-strategies.md
 ```
@@ -43,7 +43,7 @@ For this project, we also require:
 ### 1. Layered Configuration
 ```markdown
 # Base Layer (Global)
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/security-practices.md
 
 # Project Layer
@@ -79,7 +79,7 @@ Some modules work best together:
 
 ### Full-Stack Development
 ```markdown
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 @modules/global/git-workflow.md
 @modules/global/code-quality.md
 @modules/global/security-practices.md
@@ -111,7 +111,7 @@ Brief description of what this module provides
 
 ## Dependencies
 This module works best when combined with:
-- @modules/global/environment-management.md (optional)
+- @modules/global/flox-environment.md (optional)
 - @modules/global/git-workflow.md (recommended)
 
 ## Configuration

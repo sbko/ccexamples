@@ -5,7 +5,7 @@ Comprehensive configuration for React/Next.js projects with TypeScript, testing,
 
 ## Dependencies
 <!-- These modules should be imported first -->
-- modules/global/environment-management.md
+- modules/global/flox-environment.md
 - modules/global/code-quality.md
 - modules/global/git-workflow.md
 

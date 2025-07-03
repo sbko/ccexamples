@@ -11,7 +11,7 @@ This example demonstrates how to choose and configure different environment mana
 ## Environment Management Options (Choose One)
 
 ### Option 1: Flox Environment (Recommended for New Projects)
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 
 ### Option 2: Docker-Based Development
 @modules/global/docker-environment.md
@@ -74,7 +74,7 @@ You can also combine approaches for different scenarios:
 
 ```markdown
 # Primary environment management
-@modules/global/environment-management.md
+@modules/global/flox-environment.md
 
 # Additional Docker support for integration testing
 @modules/global/docker-environment.md
