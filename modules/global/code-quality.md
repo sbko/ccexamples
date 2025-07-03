@@ -12,407 +12,328 @@ Enforce consistent code quality through automated linting, formatting, type chec
 - **Consistent standards**: Same rules for all developers
 
 ### 2. Quality Metrics
-- **Zero lint errors**: No exceptions for new code
-- **Type safety**: 100% type coverage for TypeScript/Flow
+- **Zero lint/format errors**: No exceptions for new code
+- **Type safety**: Use strong typing when available
 - **Format consistency**: Automated formatting on save
 - **Complexity limits**: Enforce maximum cyclomatic complexity
 
-## Linting Configuration
+## Language-Specific Tool Selection
 
-### ESLint Setup (JavaScript/TypeScript)
-```json
-{
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "rules": {
-    "no-console": ["error", { "allow": ["warn", "error"] }],
-    "no-unused-vars": "error",
-    "no-debugger": "error",
-    "prefer-const": "error",
-    "no-var": "error",
-    "eqeqeq": ["error", "always"],
-    "curly": ["error", "all"],
-    "complexity": ["error", 10]
-  }
-}
-```
+### Identify Available Tools
+Check for language-specific quality tools in your project:
+- **Linters**: Tools that catch potential bugs and style issues
+- **Formatters**: Tools that enforce consistent code style
+- **Type checkers**: Tools that verify type correctness
+- **Static analyzers**: Tools that find security and performance issues
 
-### Python Linting (Ruff/Flake8)
-```toml
-# pyproject.toml or ruff.toml
-[tool.ruff]
-line-length = 88
-select = ["E", "F", "I", "N", "W", "B", "C90", "D"]
-ignore = ["E501"]  # Line length handled by formatter
+### Common Tool Categories by Language
+- **JavaScript/TypeScript**: ESLint, Prettier, TSC
+- **Python**: Ruff/Flake8, Black, MyPy
+- **Go**: golangci-lint, gofmt, go vet
+- **Rust**: Clippy, rustfmt, cargo check
+- **Java**: SpotBugs, Checkstyle, Google Java Format
+- **C#**: Roslyn analyzers, dotnet format
+- **Ruby**: RuboCop, Sorbet
+- **PHP**: PHP_CodeSniffer, PHP-CS-Fixer, PHPStan
 
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["F401"]  # Unused imports OK in __init__
-"tests/*" = ["D"]  # No docstrings required in tests
-```
+## Code Formatting Standards
 
-### Go Linting
-```yaml
-# .golangci.yml
-linters:
-  enable:
-    - gofmt
-    - golint
-    - govet
-    - errcheck
-    - ineffassign
-    - staticcheck
-    - gocyclo
-    - dupl
-linters-settings:
-  gocyclo:
-    min-complexity: 10
-```
+### Universal Formatting Principles
+- **Consistent indentation**: Choose tabs or spaces, apply everywhere
+- **Line length limits**: Typically 80-120 characters
+- **Consistent spacing**: Around operators, after commas
+- **End-of-line normalization**: Consistent line endings (LF recommended)
+- **Trailing whitespace**: Remove all trailing spaces
+- **Final newline**: Files should end with a newline
 
-## Code Formatting
+### Formatter Integration
+1. **Identify formatter**: Find the standard formatter for your language
+2. **Configure editor**: Set up format-on-save in your editor
+3. **Pre-commit hooks**: Run formatter before commits
+4. **CI validation**: Check formatting in continuous integration
 
-### Prettier Configuration
-```json
-{
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "bracketSpacing": true,
-  "arrowParens": "always",
-  "endOfLine": "lf"
-}
-```
+### Common Formatting Decisions
+- **Indentation size**: 2, 4, or 8 spaces (or tabs)
+- **Quote style**: Single vs double quotes
+- **Trailing commas**: Include or exclude in lists/objects
+- **Bracket spacing**: Spaces inside brackets/braces
+- **Line wrapping**: When and how to wrap long lines
 
-### Language-Specific Formatters
-```bash
-# JavaScript/TypeScript
-npx prettier --write "**/*.{js,jsx,ts,tsx,json,md}"
+## Type Safety Standards
 
-# Python
-black . --line-length 88
-isort . --profile black
+### Static Typing Benefits
+- **Early error detection**: Catch bugs at compile time
+- **Better IDE support**: Enhanced autocomplete and refactoring
+- **Documentation**: Types serve as executable documentation
+- **Refactoring safety**: Compiler catches breaking changes
 
-# Go
-gofmt -w .
-goimports -w .
+### Type Safety Practices
+1. **Enable strict checking**: Use the strictest type checking available
+2. **Avoid any/dynamic types**: Prefer specific, well-defined types
+3. **Type annotations**: Add explicit types for function parameters and returns
+4. **Null safety**: Handle null/undefined values explicitly
+5. **Type coverage**: Aim for high percentage of typed code
 
-# Rust
-cargo fmt
-```
+### Language-Specific Type Systems
+- **Statically typed**: Go, Rust, Java, C#, Kotlin
+- **Gradually typed**: TypeScript, Python (with mypy), PHP (with PHPStan)
+- **Dynamically typed**: JavaScript, Ruby, Python (without type hints)
 
-## Type Checking
+### Type Checking Integration
+1. **Build process**: Include type checking in build steps
+2. **Editor integration**: Real-time type error reporting
+3. **CI validation**: Fail builds on type errors
+4. **Coverage tracking**: Monitor type coverage over time
 
-### TypeScript Configuration
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
-  }
-}
-```
+## Code Analysis and Security
 
-### Type Coverage Requirements
-```bash
-# Ensure minimum type coverage
-npx type-coverage --at-least 95
+### Static Analysis Goals
+- **Bug detection**: Find potential runtime errors
+- **Code smells**: Identify maintainability issues
+- **Security vulnerabilities**: Detect security anti-patterns
+- **Performance issues**: Identify inefficient code patterns
+- **Convention compliance**: Enforce coding standards
 
-# Check for any types
-npx type-coverage --strict
-```
+### Analysis Categories
+1. **Syntax analysis**: Basic parsing and syntax checking
+2. **Semantic analysis**: Logic flow and type checking
+3. **Style analysis**: Code formatting and naming conventions
+4. **Security analysis**: Vulnerability and security pattern detection
+5. **Complexity analysis**: Cyclomatic complexity and maintainability metrics
 
-## Code Analysis Tools
+### Security Scanning Principles
+- **Dependency scanning**: Check for vulnerable dependencies
+- **Secret detection**: Find hardcoded credentials and API keys
+- **Input validation**: Ensure proper sanitization patterns
+- **Authentication patterns**: Verify secure authentication flows
+- **Data exposure**: Check for sensitive data leaks
 
-### Static Analysis
-```bash
-# JavaScript/TypeScript
-npx eslint . --ext .js,.jsx,.ts,.tsx
-npx tsc --noEmit
+### Tool Integration Strategy
+1. **Local development**: Run basic checks on save
+2. **Pre-commit**: Run comprehensive checks before commit
+3. **CI/CD pipeline**: Full analysis on every push
+4. **Scheduled scans**: Regular security and dependency audits
 
-# Python
-mypy . --strict
-pylint src/
+## Pre-commit Quality Gates
 
-# Go
-go vet ./...
-staticcheck ./...
-```
+### Pre-commit Hook Principles
+- **Fast feedback**: Catch issues before they enter repository
+- **Incremental checks**: Only check changed files when possible
+- **Fail fast**: Stop on first critical error
+- **Consistent environment**: Same checks for all developers
 
-### Security Scanning
-```bash
-# JavaScript
-npm audit
-npx snyk test
+### Common Pre-commit Checks
+1. **Formatting**: Ensure consistent code style
+2. **Linting**: Catch potential bugs and style issues
+3. **Type checking**: Verify type correctness
+4. **Tests**: Run tests affected by changes
+5. **Security**: Scan for secrets and vulnerabilities
+6. **Dependencies**: Check for security advisories
 
-# Python
-bandit -r src/
-safety check
-
-# General
-gitleaks detect
-```
-
-## Pre-commit Hooks
-
-### Configuration (.pre-commit-config.yaml)
-```yaml
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-added-large-files
-      - id: check-merge-conflict
-      
-  - repo: local
-    hooks:
-      - id: lint
-        name: Run linters
-        entry: npm run lint
-        language: system
-        files: \.(js|jsx|ts|tsx)$
-        
-      - id: typecheck
-        name: Type check
-        entry: npm run typecheck
-        language: system
-        files: \.tsx?$
-        
-      - id: test
-        name: Run tests
-        entry: npm test -- --onlyChanged
-        language: system
-        files: \.(js|jsx|ts|tsx)$
-```
+### Hook Implementation Strategies
+- **Language package managers**: Use npm scripts, make targets, etc.
+- **Pre-commit frameworks**: Tools like pre-commit, husky, lint-staged
+- **Custom scripts**: Shell scripts for project-specific checks
+- **CI integration**: Ensure hooks match CI pipeline checks
 
 ## Editor Integration
 
-### VS Code Settings
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
-  },
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "files.eol": "\n",
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true
-}
+### Universal Editor Configuration
+- **Format on save**: Automatically format code when saving
+- **Real-time linting**: Show errors and warnings while typing
+- **Auto-fix**: Automatically fix simple issues
+- **Import organization**: Sort and clean up imports
+- **Consistent settings**: Use EditorConfig for team consistency
+
+### EditorConfig Standard
+Create `.editorconfig` file for consistent formatting:
+```ini
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{yml,yaml,json}]
+indent_size = 2
 ```
 
-### Required Extensions
-- ESLint
-- Prettier
-- EditorConfig
-- GitLens
-- Error Lens
+### Language Server Protocol (LSP)
+Use LSP-compatible editors for consistent experience:
+- **VS Code**: Built-in LSP support
+- **Vim/Neovim**: Via plugins like nvim-lspconfig
+- **Emacs**: Via lsp-mode
+- **Sublime Text**: Via LSP package
+- **IntelliJ/WebStorm**: Built-in language support
 
-## Quality Gates
+## Quality Gate Implementation
 
-### Build-time Checks
-```json
-{
-  "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit",
-    "quality": "npm run lint && npm run format:check && npm run typecheck",
-    "precommit": "lint-staged",
-    "prepush": "npm run quality && npm test"
-  }
-}
-```
+### Progressive Quality Checks
+1. **Developer machine**: Real-time feedback in editor
+2. **Pre-commit**: Fast checks on changed files
+3. **Pre-push**: More comprehensive local validation
+4. **CI/CD pipeline**: Full quality suite
+5. **Scheduled**: Periodic security and dependency audits
 
-### CI/CD Integration
-```yaml
-quality-check:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v3
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run format:check
-    - run: npm run typecheck
-    - run: npm test -- --coverage
-    - run: npx type-coverage --at-least 95
-```
+### Quality Gate Principles
+- **Zero tolerance**: No quality regressions allowed
+- **Fast feedback**: Quick local checks, comprehensive remote checks
+- **Consistent standards**: Same rules in all environments
+- **Actionable results**: Clear instructions for fixing issues
+
+### Common Quality Commands
+Create consistent commands across projects:
+- `lint`: Run static analysis
+- `format`: Apply code formatting
+- `format:check`: Verify formatting without changes
+- `typecheck`: Verify type correctness
+- `test`: Run test suite
+- `security`: Run security scans
+- `quality`: Run all quality checks
+
+### CI/CD Integration Strategy
+- **Parallel execution**: Run checks concurrently when possible
+- **Early termination**: Fail fast on critical issues
+- **Artifact collection**: Save reports for review
+- **Status reporting**: Clear pass/fail indication
 
 ## Code Complexity Management
 
-### Complexity Metrics
-```javascript
-// ESLint complexity rule
-{
-  "complexity": ["error", { "max": 10 }],
-  "max-lines": ["error", { "max": 300, "skipBlankLines": true }],
-  "max-lines-per-function": ["error", { "max": 50 }],
-  "max-params": ["error", 3],
-  "max-depth": ["error", 4],
-  "max-nested-callbacks": ["error", 3]
-}
-```
+### Universal Complexity Metrics
+- **Cyclomatic complexity**: Number of independent paths through code
+- **Function length**: Lines of code per function/method
+- **Parameter count**: Number of function parameters
+- **Nesting depth**: Levels of nested control structures
+- **Duplicate code**: Repeated code blocks
+
+### Complexity Thresholds
+- **Functions**: Keep under 50 lines, prefer 20-30 lines
+- **Cyclomatic complexity**: Maximum 10, prefer 5 or less
+- **Parameters**: Maximum 5, prefer 3 or less
+- **Nesting depth**: Maximum 4 levels
+- **File size**: Keep under 500 lines, prefer 200-300 lines
 
 ### Refactoring Triggers
-- Function > 50 lines: Split into smaller functions
-- File > 300 lines: Consider splitting
-- Complexity > 10: Simplify logic
-- Duplicate code > 3 instances: Extract common functionality
+1. **Extract functions**: When functions exceed line limits
+2. **Split files**: When files become too large
+3. **Reduce parameters**: Use objects or configuration patterns
+4. **Flatten nesting**: Use early returns and guard clauses
+5. **Extract constants**: Replace magic numbers and strings
 
 ## Documentation Standards
 
-### Code Comments
-```javascript
-/**
- * Calculate the total price including tax
- * @param {number} basePrice - Price before tax
- * @param {number} taxRate - Tax rate as decimal (0.1 = 10%)
- * @returns {number} Total price with tax included
- * @throws {Error} If basePrice or taxRate is negative
- */
-function calculateTotalPrice(basePrice, taxRate) {
-  if (basePrice < 0 || taxRate < 0) {
-    throw new Error('Price and tax rate must be non-negative');
-  }
-  return basePrice * (1 + taxRate);
-}
-```
+### Code Documentation Principles
+- **Public APIs**: All public functions, classes, and modules must be documented
+- **Complex logic**: Explain non-obvious algorithms and business rules
+- **Purpose over implementation**: Focus on what and why, not how
+- **Examples**: Include usage examples for complex functions
+- **Edge cases**: Document special cases and limitations
 
-### JSDoc/TSDoc Requirements
-- All public functions must have documentation
-- Include parameter descriptions and types
-- Document return values and exceptions
-- Add examples for complex functions
+### Documentation Format Standards
+- Use language-appropriate documentation formats (JSDoc, docstrings, etc.)
+- Include parameter types and descriptions
+- Document return values and possible exceptions
+- Maintain documentation with code changes
+- Use consistent terminology and style
 
-## Error Prevention
+### Comment Guidelines
+- Avoid obvious comments that just restate the code
+- Explain business logic and complex algorithms
+- Document workarounds and temporary solutions
+- Keep comments up-to-date with code changes
+- Use TODO comments sparingly and track them
 
-### Strict Mode
-```javascript
-// JavaScript
-'use strict';
+## Error Prevention Strategies
 
-// TypeScript tsconfig.json
-{
-  "compilerOptions": {
-    "strict": true,
-    "alwaysStrict": true
-  }
-}
-```
+### Defensive Programming
+- **Input validation**: Always validate function parameters
+- **Null checks**: Handle null/undefined values explicitly
+- **Bounds checking**: Verify array/collection access
+- **Resource management**: Properly handle file handles, connections, etc.
+- **Graceful degradation**: Provide fallbacks for external dependencies
 
-### Error Handling Patterns
-```typescript
-// Never ignore errors silently
-try {
-  await riskyOperation();
-} catch (error) {
-  // Always handle or re-throw
-  logger.error('Operation failed:', error);
-  throw new ProcessingError('Failed to process', { cause: error });
-}
-```
+### Error Handling Best Practices
+- **Fail fast**: Detect and report errors as early as possible
+- **Specific exceptions**: Use appropriate error types for different scenarios
+- **Error context**: Include relevant information in error messages
+- **Logging**: Log errors with sufficient detail for debugging
+- **Recovery**: Implement appropriate error recovery when possible
 
-## Performance Considerations
-
-### Bundle Size Analysis
-```bash
-# Analyze bundle size
-npm run build -- --stats
-webpack-bundle-analyzer stats.json
-
-# Check for unused code
-npx depcheck
-npx unimported
-```
-
-### Performance Budgets
-```json
-{
-  "bundlesize": [
-    {
-      "path": "./dist/bundle.js",
-      "maxSize": "100 kB"
-    },
-    {
-      "path": "./dist/vendor.js",
-      "maxSize": "200 kB"
-    }
-  ]
-}
-```
+### Code Safety Measures
+- Use language safety features (strict mode, compiler warnings)
+- Enable all available static analysis warnings
+- Implement comprehensive error handling
+- Write defensive code that handles edge cases
+- Use immutable data structures when possible
 
 ## Integration with Claude Code
 
-### Automatic Quality Fixes
-1. **Auto-fix on save**: Apply formatting and safe lint fixes
-2. **Import organization**: Sort and remove unused imports
-3. **Type inference**: Add missing type annotations
-4. **Dead code elimination**: Remove unreachable code
+### Intelligent Quality Management
+1. **Auto-detection**: Identify quality tools and configurations in project
+2. **Smart execution**: Run appropriate checks based on file types
+3. **Context-aware fixes**: Apply language-appropriate quality improvements
+4. **Progressive enhancement**: Suggest quality tool adoption
 
-### Quality Workflows
-```bash
-# Before running any command
-1. Check if lint/format commands exist
-2. Run quality checks automatically
-3. Fix issues if possible
-4. Report unfixable issues
+### Quality Tool Discovery
+Before making changes, Claude Code should:
+1. **Scan for config files**: Look for linter, formatter, and type checker configs
+2. **Check package managers**: Identify available quality commands
+3. **Detect language**: Determine primary programming languages
+4. **Assess current state**: Understand existing quality practices
 
-# Example workflow
-if [ -f "package.json" ]; then
-  # Check for quality scripts
-  if npm run lint --dry-run 2>/dev/null; then
-    npm run lint
-  fi
-  if npm run typecheck --dry-run 2>/dev/null; then
-    npm run typecheck
-  fi
-fi
-```
+### Automated Quality Workflows
+- **Pre-execution checks**: Run quality tools before making changes
+- **Post-change validation**: Verify changes don't break quality standards
+- **Incremental improvements**: Suggest quality tool adoption when missing
+- **Error interpretation**: Explain quality violations and suggest fixes
 
-### Smart Suggestions
-- Suggest lint rule additions based on errors
-- Recommend formatter configurations
-- Identify missing type definitions
-- Propose complexity reductions
+### Quality Enhancement Suggestions
+- Recommend quality tools when none are configured
+- Suggest stricter settings for existing tools
+- Identify inconsistencies in quality configuration
+- Propose quality improvements based on codebase analysis
 
 ## Best Practices Summary
 
+### Universal Quality Standards
+1. **Consistency**: Use the same standards across all team members
+2. **Automation**: Automate quality checks wherever possible
+3. **Early detection**: Catch issues as early in the development cycle as possible
+4. **Continuous improvement**: Regularly review and update quality standards
+5. **Documentation**: Document quality decisions and exceptions
+6. **Education**: Ensure team understands the reasoning behind quality rules
+
 ### DO
 - Run quality checks before every commit
-- Fix all warnings, not just errors
-- Use strict type checking
-- Automate formatting
-- Keep complexity low
-- Document public APIs
-- Use pre-commit hooks
-- Integrate with CI/CD
+- Fix all errors and address warnings
+- Use the strictest language settings available
+- Automate formatting and basic fixes
+- Keep code complexity low and readable
+- Document public APIs and complex logic
+- Use pre-commit hooks for immediate feedback
+- Integrate quality checks into CI/CD pipeline
+- Review and update quality tools regularly
 
 ### DON'T
-- Disable lint rules without justification
-- Use `any` type in TypeScript
-- Ignore type errors
-- Mix formatting styles
-- Commit with failing checks
-- Use `@ts-ignore` without explanation
-- Skip quality checks for "quick fixes"
+- Disable quality rules without documented justification
+- Use dynamic/any types without necessity
+- Ignore compiler warnings and errors
+- Mix different formatting styles in the same project
+- Commit code that fails quality checks
+- Use disable pragmas without explaining why
+- Skip quality checks for "quick fixes" or urgent changes
+- Let technical debt accumulate without addressing it
 
-This module ensures consistent, high-quality code across all projects through comprehensive automation and strict standards.
+### Quality Evolution
+- Start with basic linting and formatting
+- Gradually increase strictness as team adapts
+- Add more sophisticated analysis tools over time
+- Regularly review and update quality standards
+- Share quality improvements across projects
+- Learn from quality violations to improve processes
+
+This module ensures consistent, high-quality code across all projects and programming languages through universal principles and automated enforcement.

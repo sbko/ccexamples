@@ -12,15 +12,26 @@ Establish comprehensive testing practices, promote test-driven development (TDD)
 - **Minimal implementation**: Write just enough code to pass
 
 ### 2. Test Pyramid Strategy
-```
-         /\
-        /  \    E2E Tests (10%)
-       /----\   
-      /      \  Integration Tests (30%)
-     /--------\
-    /          \ Unit Tests (60%)
-   /____________\
-```
+
+The test pyramid represents the ideal distribution of different types of tests:
+
+**Unit Tests (Foundation - 60-70%)**:
+- Fast, isolated tests of individual components
+- High coverage of business logic and edge cases
+- Quick feedback during development
+- Low maintenance cost
+
+**Integration Tests (Middle - 20-30%)**:
+- Test interactions between components
+- Validate data flow and system boundaries
+- Balance between speed and realistic testing
+- Medium maintenance cost
+
+**End-to-End Tests (Top - 10-20%)**:
+- Test complete user journeys and workflows
+- Validate system behavior from user perspective
+- Slower execution but high confidence
+- Higher maintenance cost
 
 ## Testing Workflow Protocol
 
