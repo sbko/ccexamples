@@ -643,21 +643,21 @@ spec:
 ## Integration with Other Modules
 
 ### Environment Management
-- Use @modules/global/environment-management.md for Go tool installation
+- Use the Environment Management module for Go tool installation
 - Configure Go-specific environment variables
 - Set up Go development environment with proper tooling
 
 ### Code Quality
-- Apply @modules/global/code-quality.md standards to Go code
+- Apply the Code Quality module standards to Go code
 - Use Go-specific linting and formatting tools
 - Implement Go-specific quality gates
 
 ### Testing Strategies
-- Follow @modules/project-specific/testing-strategies.md for comprehensive testing
+- Follow the Testing Strategies module for comprehensive testing
 - Implement Go-specific testing patterns
 - Use Go testing tools and frameworks
 
 ### Security Practices
-- Apply @modules/global/security-practices.md to Go applications
+- Apply the Security Practices module to Go applications
 - Implement Go-specific security patterns
 - Use Go security scanning tools

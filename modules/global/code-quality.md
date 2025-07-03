@@ -28,7 +28,7 @@ Check for language-specific quality tools in your project:
 
 ### Tool Selection by Language
 
-For specific tool recommendations and command examples, see @modules/global/universal-commands.md which provides comprehensive coverage of quality tools for all major languages.
+For specific tool recommendations and command examples, see the Universal Commands module which provides comprehensive coverage of quality tools for all major languages.
 
 ## Code Formatting Standards
 

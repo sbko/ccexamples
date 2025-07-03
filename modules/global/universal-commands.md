@@ -55,7 +55,7 @@ dotnet test --collect:"XPlat Code Coverage"
 
 ## Environment-Aware Execution
 
-For environment-specific execution patterns, see @modules/global/environment-management.md which provides comprehensive guidance on:
+For environment-specific execution patterns, see the Environment Management module which provides comprehensive guidance on:
 - Flox environment activation
 - Docker environment handling
 - Direct execution fallbacks
