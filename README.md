@@ -38,16 +38,16 @@ Pre-configured templates for common project types:
 ## Usage
 
 ### Global Configuration
-Use the module import syntax in your `~/.claude/CLAUDE.md` file:
+Use the native Claude Code import syntax in your `~/.claude/CLAUDE.md` file:
 
 ```markdown
 # Global Claude Code Configuration
 
 ## Core Development Standards
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/global/git-workflow.md -->
-<!-- Import: modules/global/code-quality.md -->
-<!-- Import: modules/global/security-practices.md -->
+@modules/global/environment-management.md
+@modules/global/git-workflow.md
+@modules/global/code-quality.md
+@modules/global/security-practices.md
 
 ## Additional customizations...
 ```
@@ -58,10 +58,13 @@ Add modules to your project's `./CLAUDE.md`:
 ```markdown
 # Project Configuration
 
+## Import Global Standards
+@~/.claude/CLAUDE.md
+
 ## Project-Specific Standards
-<!-- Import: modules/project-specific/testing-strategies.md -->
-<!-- Import: modules/project-specific/debugging-protocols.md -->
-<!-- Import: modules/templates/react-project.md -->
+@modules/project-specific/testing-strategies.md
+@modules/project-specific/debugging-protocols.md
+@modules/templates/react-project.md
 
 ## Project overrides...
 ```

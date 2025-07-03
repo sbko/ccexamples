@@ -2,28 +2,33 @@
 
 ## Overview
 
-The Claude Code Module System allows you to create reusable, composable configuration modules that can be imported into CLAUDE.md files. This enables standardized best practices, reduces configuration duplication, and allows teams to share proven patterns.
+The Claude Code Module System allows you to create reusable, composable configuration modules that can be imported into CLAUDE.md files using Claude Code's native import functionality. This enables standardized best practices, reduces configuration duplication, and allows teams to share proven patterns.
 
 ## Module Import Syntax
 
+Claude Code uses the `@path/to/file` syntax for imports, as documented in the [official Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/memory#claude-md-imports).
+
 ### Basic Import
 ```markdown
-<!-- Import: modules/global/git-workflow.md -->
+@modules/global/git-workflow.md
 ```
 
 ### Multiple Imports
 ```markdown
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/global/security-practices.md -->
-<!-- Import: modules/project-specific/testing-strategies.md -->
+@modules/global/environment-management.md
+@modules/global/security-practices.md
+@modules/project-specific/testing-strategies.md
 ```
 
-### Import with Customization
+### Import with Context
 ```markdown
-<!-- Import: modules/global/code-quality.md -->
+# Global Standards
+@modules/global/code-quality.md
 
-## Project-Specific Overrides
-<!-- Override or extend imported module settings here -->
+# Project-Specific Overrides
+For this project, we also require:
+- Database performance testing
+- API documentation standards
 ```
 
 ## Module Loading Order
@@ -38,36 +43,34 @@ The Claude Code Module System allows you to create reusable, composable configur
 ### 1. Layered Configuration
 ```markdown
 # Base Layer (Global)
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/global/security-practices.md -->
+@modules/global/environment-management.md
+@modules/global/security-practices.md
 
 # Project Layer
-<!-- Import: modules/templates/react-project.md -->
+@modules/templates/react-project.md
 
 # Feature Layer
-<!-- Import: modules/project-specific/testing-strategies.md -->
+@modules/project-specific/testing-strategies.md
 ```
 
 ### 2. Selective Import
 ```markdown
 # Only import what you need
-<!-- Import: modules/global/git-workflow.md -->
-<!-- Skip security module if not needed -->
+@modules/global/git-workflow.md
+
+# Skip security module if not needed for this project
 ```
 
 ### 3. Override Pattern
 ```markdown
-<!-- Import: modules/global/code-quality.md -->
+@modules/global/code-quality.md
 
-## Code Quality Standards
+## Project-Specific Code Quality Overrides
 
-### ESLint Configuration
-<!-- Override specific rules from imported module -->
-{
-  "rules": {
-    "max-lines": ["error", { "max": 500 }]  // Override from 300
-  }
-}
+For this project, we have stricter requirements:
+- Maximum file length: 500 lines (override from 300)
+- Custom linting rules for domain-specific code
+- Additional type safety requirements
 ```
 
 ## Module Dependencies
@@ -76,25 +79,25 @@ Some modules work best together:
 
 ### Full-Stack Development
 ```markdown
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/global/git-workflow.md -->
-<!-- Import: modules/global/code-quality.md -->
-<!-- Import: modules/global/security-practices.md -->
-<!-- Import: modules/project-specific/testing-strategies.md -->
+@modules/global/environment-management.md
+@modules/global/git-workflow.md
+@modules/global/code-quality.md
+@modules/global/security-practices.md
+@modules/project-specific/testing-strategies.md
 ```
 
 ### Frontend Focus
 ```markdown
-<!-- Import: modules/global/code-quality.md -->
-<!-- Import: modules/global/performance-optimization.md -->
-<!-- Import: modules/templates/react-project.md -->
+@modules/global/code-quality.md
+@modules/global/performance-optimization.md
+@modules/templates/react-project.md
 ```
 
 ### API Development
 ```markdown
-<!-- Import: modules/global/security-practices.md -->
-<!-- Import: modules/global/performance-optimization.md -->
-<!-- Import: modules/templates/api-project.md -->
+@modules/global/security-practices.md
+@modules/global/performance-optimization.md
+@modules/templates/api-project.md
 ```
 
 ## Creating Custom Modules
@@ -107,8 +110,9 @@ Some modules work best together:
 Brief description of what this module provides
 
 ## Dependencies
-<!-- List other modules this depends on -->
-- modules/global/environment-management.md (optional)
+This module works best when combined with:
+- @modules/global/environment-management.md (optional)
+- @modules/global/git-workflow.md (recommended)
 
 ## Configuration
 <!-- Main module content -->
@@ -127,21 +131,22 @@ Brief description of what this module provides
 
 ## Advanced Import Features
 
-### Conditional Imports
+### Home Directory Imports
 ```markdown
-<!-- If: project.type === "react" -->
-<!-- Import: modules/templates/react-project.md -->
-<!-- EndIf -->
+# Import from global configuration directory
+@~/.claude/modules/team-standards.md
+
+# Import project-specific modules
+@modules/project-specific/testing-strategies.md
 ```
 
-### Import Variables
+### Documentation References
 ```markdown
-<!-- Import: modules/templates/${PROJECT_TYPE}-project.md -->
-```
+# Reference project documentation
+See @README.md for project overview and @package.json for available commands.
 
-### Partial Imports
-```markdown
-<!-- Import: modules/global/security-practices.md#authentication -->
+# Import custom instructions
+@docs/deployment-guide.md
 ```
 
 ## Module Resolution
@@ -165,29 +170,25 @@ Brief description of what this module provides
 
 ## Debugging Module Imports
 
-### Verbose Import Logging
-```markdown
-<!-- Debug: imports -->
-<!-- Import: modules/global/git-workflow.md -->
+### Viewing Loaded Memory
+Use the `/memory` command in Claude Code to view all loaded files and imports:
+
+```
+/memory
 ```
 
-### Import Validation
-```markdown
-<!-- Validate: imports -->
-<!-- Import: modules/global/git-workflow.md -->
-```
+This will show:
+- All imported module files
+- File paths and content
+- Import hierarchy and dependencies
 
-### List Loaded Modules
-```markdown
-<!-- List: loaded-modules -->
-```
+## Import Limitations
 
-## Module Caching
-
-Modules are cached for performance:
-- Cache invalidated on file change
-- Force refresh with `<!-- Import: modules/example.md?refresh -->`
-- Clear cache with `claude cache clear`
+Based on Claude Code documentation:
+- **Maximum recursive import depth**: 5 hops
+- **Import evaluation**: Imports are not evaluated inside markdown code spans or code blocks
+- **File access**: Can import from project directories and user home directory
+- **Path types**: Supports both relative and absolute file paths
 
 ## Security Considerations
 
@@ -202,22 +203,29 @@ Modules are cached for performance:
 ```bash
 # Share team modules via Git
 git clone team-modules ~/.claude/modules/team
+
+# In ~/.claude/CLAUDE.md
+@modules/team/standards.md
+@modules/team/workflow.md
 ```
 
 ### 2. Project Templates
-```bash
-# Create new project with template
-claude init --template full-stack
+```markdown
+# Start with a template
+@modules/templates/go-api-project.md
+
+# Add project-specific requirements
+@modules/project-specific/testing-strategies.md
 ```
 
 ### 3. Progressive Enhancement
 ```markdown
 # Start simple
-<!-- Import: modules/global/git-workflow.md -->
+@modules/global/git-workflow.md
 
 # Add as needed
-<!-- Import: modules/global/code-quality.md -->
-<!-- Import: modules/global/security-practices.md -->
+@modules/global/code-quality.md
+@modules/global/security-practices.md
 ```
 
 ## Module Marketplace (Future)
@@ -241,19 +249,20 @@ Planned features:
 - Use layered architecture
 - Extract common configuration
 
-### Performance Issues
-- Limit import depth
-- Use caching effectively
-- Avoid redundant imports
+### Import Depth Exceeded
+- Limit import chains to 5 levels maximum
+- Flatten deep import hierarchies
+- Consider module consolidation
 
 ## Best Practices Summary
 
-1. **Start Small**: Import only what you need
-2. **Layer Wisely**: Global → Project → Feature
-3. **Document Dependencies**: Note module relationships
-4. **Test Imports**: Verify modules work together
-5. **Version Control**: Track module changes
-6. **Regular Updates**: Keep modules current
-7. **Custom Modules**: Create project-specific modules as needed
+1. **Use native syntax**: Use `@path/to/file` not HTML comments
+2. **Start Small**: Import only what you need
+3. **Layer Wisely**: Global → Project → Feature
+4. **Document Dependencies**: Note module relationships
+5. **Test Imports**: Verify modules work together with `/memory`
+6. **Version Control**: Track module changes
+7. **Regular Updates**: Keep modules current
+8. **Custom Modules**: Create project-specific modules as needed
 
-This module system enables powerful, flexible configuration management while maintaining simplicity and clarity.
+This module system enables powerful, flexible configuration management while maintaining simplicity and clarity using Claude Code's native import functionality.

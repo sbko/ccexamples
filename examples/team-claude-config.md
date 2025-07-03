@@ -4,10 +4,10 @@ This example shows how a development team might configure `~/.claude/CLAUDE.md` 
 
 ## Team Development Standards
 
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/global/git-workflow.md -->
-<!-- Import: modules/global/code-quality.md -->
-<!-- Import: modules/global/security-practices.md -->
+@modules/global/environment-management.md
+@modules/global/git-workflow.md
+@modules/global/code-quality.md
+@modules/global/security-practices.md
 
 ## Team-Specific Overrides
 

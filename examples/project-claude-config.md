@@ -4,15 +4,19 @@ This is an example of a project-specific `./CLAUDE.md` file that builds upon glo
 
 ## Project Information
 
-**Project Type**: Go REST API with PostgreSQL database
-**Tech Stack**: Go 1.21, PostgreSQL 15, Docker, Kubernetes
-**Team Size**: 5 developers
-**Deployment**: Cloud-native microservice
+**Project Type**: Go REST API with PostgreSQL database  
+**Tech Stack**: Go 1.21, PostgreSQL 15, Docker, Kubernetes  
+**Team Size**: 5 developers  
+**Deployment**: Cloud-native microservice  
+
+## Import Global Standards
+
+@~/.claude/CLAUDE.md
 
 ## Project-Specific Modules
 
-<!-- Import: modules/project-specific/testing-strategies.md -->
-<!-- Import: modules/project-specific/debugging-protocols.md -->
+@modules/project-specific/testing-strategies.md
+@modules/project-specific/debugging-protocols.md
 
 ## Go-Specific Development Standards
 
