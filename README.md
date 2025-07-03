@@ -38,27 +38,40 @@ Pre-configured templates for common project types:
 ## Usage
 
 ### Global Configuration
-Copy desired global modules to your Claude configuration directory:
-```bash
-cp modules/global/environment-management.md ~/.claude/CLAUDE.md
-# Or concatenate multiple modules:
-cat modules/global/*.md > ~/.claude/CLAUDE.md
+Use the module import syntax in your `~/.claude/CLAUDE.md` file:
+
+```markdown
+# Global Claude Code Configuration
+
+## Core Development Standards
+<!-- Import: modules/global/environment-management.md -->
+<!-- Import: modules/global/git-workflow.md -->
+<!-- Import: modules/global/code-quality.md -->
+<!-- Import: modules/global/security-practices.md -->
+
+## Additional customizations...
 ```
 
 ### Project-Specific Configuration
-Add modules to your project's CLAUDE.md:
-```bash
-cp modules/project-specific/testing-strategies.md ./CLAUDE.md
+Add modules to your project's `./CLAUDE.md`:
+
+```markdown
+# Project Configuration
+
+## Project-Specific Standards
+<!-- Import: modules/project-specific/testing-strategies.md -->
+<!-- Import: modules/project-specific/debugging-protocols.md -->
+<!-- Import: modules/templates/react-project.md -->
+
+## Project overrides...
 ```
 
-### Module Composition
-Combine multiple modules for comprehensive configuration:
-```markdown
-# In your project's CLAUDE.md:
-<!-- Import: modules/global/environment-management.md -->
-<!-- Import: modules/project-specific/testing-strategies.md -->
-<!-- Import: modules/templates/react-project.md -->
-```
+### Example Configurations
+See the `examples/` directory for complete configuration examples:
+- `examples/simple-claude-config.md` - Minimal essential configuration
+- `examples/global-claude-config.md` - Comprehensive global configuration
+- `examples/project-claude-config.md` - Go API project with PostgreSQL
+- `examples/team-claude-config.md` - Team collaboration standards
 
 ## Module Structure
 
