@@ -4,35 +4,35 @@ This example demonstrates how to choose and configure different environment mana
 
 ## Core Development Standards (Always Include)
 
-@modules/global/git-workflow.md
-@modules/global/code-quality.md
-@modules/global/security-practices.md
+@~/.claude/ccexamples/modules/global/git-workflow.md
+@~/.claude/ccexamples/modules/global/code-quality.md
+@~/.claude/ccexamples/modules/global/security-practices.md
 
 ## Environment Management Options (Choose One)
 
 ### Option 1: Flox Environment (Recommended for New Projects)
-@modules/global/flox-environment.md
+@~/.claude/ccexamples/modules/global/flox-environment.md
 
 ### Option 2: Docker-Based Development
-@modules/global/docker-environment.md
+@~/.claude/ccexamples/modules/global/docker-environment.md
 
 ### Option 3: Nix with Flakes (Functional Programming Teams)
-@modules/global/nix-environment.md
+@~/.claude/ccexamples/modules/global/nix-environment.md
 
 ### Option 4: VS Code Dev Containers (VS Code Teams)
-@modules/global/devcontainer-environment.md
+@~/.claude/ccexamples/modules/global/devcontainer-environment.md
 
 ### Option 5: ASDF Version Manager (Multi-Language Teams)
-@modules/global/asdf-environment.md
+@~/.claude/ccexamples/modules/global/asdf-environment.md
 
 ## Workflow Integration
 
-@modules/global/project-detection.md
-@modules/global/universal-commands.md
+@~/.claude/ccexamples/modules/global/project-detection.md
+@~/.claude/ccexamples/modules/global/universal-commands.md
 
 ## Team Collaboration
 
-@modules/global/team-collaboration.md
+@~/.claude/ccexamples/modules/global/team-collaboration.md
 
 ---
 
@@ -74,11 +74,11 @@ You can also combine approaches for different scenarios:
 
 ```markdown
 # Primary environment management
-@modules/global/flox-environment.md
+@~/.claude/ccexamples/modules/global/flox-environment.md
 
 # Additional Docker support for integration testing
-@modules/global/docker-environment.md
+@~/.claude/ccexamples/modules/global/docker-environment.md
 
 # Dev container configuration for new team members
-@modules/global/devcontainer-environment.md
+@~/.claude/ccexamples/modules/global/devcontainer-environment.md
 ```
